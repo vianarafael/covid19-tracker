@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import './App.css';
 
 import Cards from './components/Cards/Cards';
@@ -8,16 +8,17 @@ import styles from './App.modules.css';
 import { fetchData } from './api';
 
 function App() {
+  const [data, setData] = useState({});
   useEffect(() => {
     const fun = async () => {
       const data = await fetchData();
-      console.log(data);
+      setData(data);
     };
     fun();
   }, []);
   return (
     <div className={styles.container}>
-      <Cards />
+      <Cards data={data} />
       <CountryPicker />
       <Chart />
     </div>
