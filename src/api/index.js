@@ -18,3 +18,13 @@ export const fetchData = async () => {
     return modifiedData;
   } catch (error) {}
 };
+
+export const fetchDailyData = async () => {
+  try {
+    // this url is not working
+    const response = await axios.get(`${url}`);
+    console.log(response);
+  } catch (error) {
+    console.log(error);
+  }
+};
