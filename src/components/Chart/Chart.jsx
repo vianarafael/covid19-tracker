@@ -16,14 +16,28 @@ export default function Chart() {
     fetchAPI();
   }, []);
 
-  const lineChart = dailyData[0] ? (
+  const lineChart = dailyData.length ? (
     <Line
       data={{
-        labels: '',
-        datasets: [{}, {}],
+        labels: dailyData.map(({ date }) => date),
+        datasets: [
+          {
+            data: dailyData.map(({ positive }) => positive),
+            label: 'Infected',
+            borderColor: '#3333ff',
+            fill: true,
+          },
+          {
+            data: dailyData.map(({ deaths }) => deaths),
+            label: 'Death',
+            borderColor: 'red',
+            backgroundColor: 'rgba(2555, 0, 0, 0.5)',
+            fill: true,
+          },
+        ],
       }}
     />
   ) : null;
 
-  return <div>{lineChart}</div>;
+  return <div className={styles.container}>{lineChart}</div>;
 }
