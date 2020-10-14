@@ -25,7 +25,7 @@ export const fetchDailyData = async () => {
     const { data } = await axios.get(
       'https://api.covidtracking.com/v1/us/daily.json'
     );
-    return data;
+    return data.reverse();
   } catch (error) {
     console.log(error);
   }

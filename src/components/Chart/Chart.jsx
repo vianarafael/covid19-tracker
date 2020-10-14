@@ -3,6 +3,9 @@ import { fetchDailyData } from '../../api';
 import { Line, Bar } from 'react-chartjs-2';
 
 import styles from './Chart.modules.css';
+// import './Chart.modules.css';
+
+console.log(styles.container);
 
 export default function Chart() {
   const [dailyData, setDailyData] = useState({});
@@ -28,7 +31,7 @@ export default function Chart() {
             fill: true,
           },
           {
-            data: dailyData.map(({ deaths }) => deaths),
+            data: dailyData.map(({ death }) => death),
             label: 'Death',
             borderColor: 'red',
             backgroundColor: 'rgba(2555, 0, 0, 0.5)',
@@ -39,5 +42,5 @@ export default function Chart() {
     />
   ) : null;
 
-  return <div className={styles.container}>{lineChart}</div>;
+  return <div className="container">{lineChart}</div>;
 }
