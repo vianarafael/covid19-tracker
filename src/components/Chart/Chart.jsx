@@ -13,7 +13,6 @@ export default function Chart() {
       setDailyData(dailyData);
     };
 
-    console.log(dailyData);
     fetchAPI();
   }, []);
 
@@ -26,9 +25,5 @@ export default function Chart() {
     />
   ) : null;
 
-  return (
-    <div>
-      <h1>Chart</h1>
-    </div>
-  );
+  return <div>{lineChart}</div>;
 }

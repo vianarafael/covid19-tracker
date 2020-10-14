@@ -22,8 +22,10 @@ export const fetchData = async () => {
 export const fetchDailyData = async () => {
   try {
     // this url is not working
-    const response = await axios.get(`${url}`);
-    console.log(response);
+    const { data } = await axios.get(
+      'https://api.covidtracking.com/v1/us/daily.json'
+    );
+    return data;
   } catch (error) {
     console.log(error);
   }
