@@ -2,10 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { fetchDailyData } from '../../api';
 import { Line, Bar } from 'react-chartjs-2';
 
-import styles from './Chart.modules.css';
-// import './Chart.modules.css';
-
-console.log(styles.container);
+import './Chart.modules.css';
 
 export default function Chart() {
   const [dailyData, setDailyData] = useState({});
