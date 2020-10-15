@@ -8,12 +8,15 @@ import styles from './App.modules.css';
 import { fetchData } from './api';
 
 function App() {
+  const [country, setCountry] = useState(null);
   const [data, setData] = useState({});
 
-  const handleCountryChange = async (country) => {
-    console.log(country);
+  const handleCountryChange = async (c) => {
     // fetch the data
+    const fetchedData = await fetchData(c);
     // set the state
+    setData(fetchedData);
+    setCountry(c);
   };
 
   useEffect(() => {
@@ -22,12 +25,14 @@ function App() {
       setData(data);
     };
     fun();
+
+    // handleCountryChange('Japan');
   }, []);
   return (
     <div className={styles.container}>
       <Cards data={data} />
       <CountryPicker handleCountryChange={handleCountryChange} />
-      <Chart />
+      <Chart data={data} country={country} />
     </div>
   );
 }

@@ -1,0 +1,6 @@
+.formControl {
+  display: block !important;
+  justify-content: center !important;
+  width: 300px;
+  margin: 40px auto !important;
+}
